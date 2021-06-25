@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:02:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/06/25 15:57:50 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:17:21 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int main(void)
     int x = -1;
     int y;
 
+    void    *mlx_ptr = mlx_init();
+    void    *win_ptr = mlx_new_window(mlx_ptr, 1920, 1080, "FRACTOL");
+
     while (++x < image_x)
     {
         y = -1;
@@ -42,7 +45,15 @@ int main(void)
             c_i = y / zoom_y + y1;
             z_r = 0;
             z_i = 0;
-            i = 0;
+            i = -1;
+            while (z_r * z_r + z_i * z_i < 4 && ++i < ITER_MAX)
+            {
+                tmp = z_r;
+                z_r = z_r * z_r - z_i * z_i + c_r;
+                z_i = 2 * z_i * tmp + c_i;
+            }
+            if (i == ITER_MAX)
+                mlx_pixel_put(mlx_ptr, win_ptr, x, y, 0xFFFFFF);
         }
     }
 }
