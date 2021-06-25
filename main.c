@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:02:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/06/25 16:17:21 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:18:20 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main(void)
     float   z_r;
     float   z_i;
     float   i;
+    float   tmp;
     int x = -1;
     int y;
 
