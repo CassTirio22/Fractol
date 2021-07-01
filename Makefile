@@ -6,14 +6,15 @@
 #    By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/25 18:02:26 by ctirions          #+#    #+#              #
-#    Updated: 2021/06/25 20:01:41 by ctirions         ###   ########.fr        #
+#    Updated: 2021/07/01 18:49:41 by ctirions         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.c \
 			srcs/display.c \
 			srcs/init.c \
-			srcs/hook.c
+			srcs/move.c \
+			srcs/utils.c
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -34,6 +35,7 @@ clean:
 
 fclean:		clean
 			@rm -f ${NAME}
+			@rm fractol
 
 re:			fclean all
 

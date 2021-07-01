@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/06/25 20:00:45 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/01 18:40:17 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct  s_data
     double  y2;
     double  zoom;
     double  max_iter;
+    int id;
 }               t_data;
 
 typedef struct  s_var
@@ -68,5 +69,10 @@ void    init_data(t_data *data);
 /*------HOOK------*/
 
 int     key_hook(int keycode, t_var *vars);
+
+/*------UTILS------*/
+
+int	ft_strcmp(const char *s1, const char *s2);
+void    draw_fract(t_var *vars);
 
 #endif

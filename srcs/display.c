@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 19:56:15 by ctirions          #+#    #+#             */
-/*   Updated: 2021/06/25 19:57:37 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/01 17:37:01 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void    mandelbrot(t_var *vars)
 {
-    float   c[2];
-    float   z[2];
-    float   tmp;
+    double   c[2];
+    double   z[2];
+    double   tmp;
     int cord[2];
     int i;
 
     cord[0] = -1;
-    while (++cord[0] < 270)
+    while (++cord[0] < 440)
     {
         cord[1] = -1;
-        while (++cord[1] < 240)
+        while (++cord[1] < 360)
         {
             c[0] = cord[0] / vars->data->zoom + vars->data->x1;
             c[1] = cord[1] / vars->data->zoom + vars->data->y1;
@@ -49,10 +49,10 @@ void    ft_reset(t_var *vars)
     int j;
 
     i = -1;
-    while (++i < 270)
+    while (++i < 440)
     {
         j = -1;
-        while (++j < 240)
+        while (++j < 360)
             pixel_put(vars->img, i, j, 0);
     }
 }
