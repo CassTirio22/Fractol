@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/04 18:20:43 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:54:51 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int draw_fract(t_var *vars);
 
 /*------UTILS------*/
 
+void	ft_croix(t_var *vars);
 void    error(int argc, char **argv, t_var *vars);
 int	ft_strcmp(const char *s1, const char *s2);
 

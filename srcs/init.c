@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:43:12 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/04 18:22:09 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:54:14 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    init_var(t_var *vars, int argc, char **argv)
     else if (vars->data->id == 1)
         init_julia(vars->data);
     vars->data->zoom = 0;
-    vars->data->max_iter = 300;
+    vars->data->max_iter = 150;
     vars->mlx_ptr = mlx_init();
     vars->win_ptr = mlx_new_window(vars->mlx_ptr, vars->data->screen[0], vars->data->screen[1], "FRACTOL");
     vars->img->img = mlx_new_image(vars->mlx_ptr, vars->data->screen[0], vars->data->screen[1]);
