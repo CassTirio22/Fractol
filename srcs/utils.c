@@ -6,23 +6,27 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:35:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/01 18:48:43 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:19:56 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
-#include <string.h>
 
-void    draw_fract(t_var *vars)
+/*void	ft_croix(t_var *vars)
 {
-    if (vars->data->id == 0)
-        mandelbrot(vars);
-}
+	int x;
+	int y;
+	x = -1;
+	y = -1;
+	while (++x < vars->data->screen[0])
+		pixel_put(vars->img, x, vars->data->screen[1] / 2, 0x3FFAB2);
+	while (++y < vars->data->screen[1])
+		pixel_put(vars->img, vars->data->screen[0] / 2, y, 0x3FFAB2);
+	mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
+}*/
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-
-    printf("%lu|\n%lu|", strlen(s1), strlen(s2));
 	int i;
 
 	i = 0;

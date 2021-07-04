@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/01 18:40:17 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:20:43 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ typedef struct  s_img
 typedef struct  s_data
 {
     double  x1;
-    double  x2;
+    double  x_size;
     double  y1;
-    double  y2;
+    double  y_size;
     double  zoom;
     double  max_iter;
     int id;
+    int screen[2];
 }               t_data;
 
 typedef struct  s_var
@@ -60,19 +61,28 @@ typedef struct  s_var
 void    ft_reset(t_var *vars);
 void	pixel_put(t_img *img, int x, int y, int color);
 void    mandelbrot(t_var *vars);
+void    julia(t_var *vars);
 
 /*------INIT------*/
 
-void    init_var(t_var *vars);
-void    init_data(t_data *data);
+void    init_var(t_var *vars, int argc, char **argv);
+void    init_julia(t_data *data);
+void    init_mandelbrot(t_data *data);
+
+/*------MOVE------*/
+
+void    zoom(t_var *vars);
+void    unzoom(t_var *vars);
 
 /*------HOOK------*/
 
-int     key_hook(int keycode, t_var *vars);
+int key_hook(int keycode, t_var *vars);
+int mouse_wheel(int button, int x, int y, t_var *vars);
+int draw_fract(t_var *vars);
 
 /*------UTILS------*/
 
+void    error(int argc, char **argv, t_var *vars);
 int	ft_strcmp(const char *s1, const char *s2);
-void    draw_fract(t_var *vars);
 
 #endif
