@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/04 18:54:51 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/05 16:58:42 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ typedef struct  s_data
     double  max_iter;
     int id;
     int screen[2];
+    int go_up;
+    int go_down;
+    int go_left;
+    int go_right;
 }               t_data;
 
 typedef struct  s_var
@@ -66,6 +70,7 @@ void    julia(t_var *vars);
 /*------INIT------*/
 
 void    init_var(t_var *vars, int argc, char **argv);
+void    init_mlx(t_var *vars);
 void    init_julia(t_data *data);
 void    init_mandelbrot(t_data *data);
 
@@ -76,7 +81,8 @@ void    unzoom(t_var *vars);
 
 /*------HOOK------*/
 
-int key_hook(int keycode, t_var *vars);
+int key_press(int keycode, t_var *vars);
+int key_release(int keycode, t_var *vars);
 int mouse_wheel(int button, int x, int y, t_var *vars);
 int draw_fract(t_var *vars);
 
