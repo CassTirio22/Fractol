@@ -6,23 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:35:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:17:41 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:53:02 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
-
-static void print_error(int error)
-{
-    if (error == 1)
-        printf("Wrong number of arguments!\n");
-    else if (error == 2)
-    {
-        printf("Wrong name for the second argument!\n");
-        printf("You have two choice:\n- Mandelbrot\n- Julia\n");
-    }
-    exit(1);
-}
+#include "../includes/fractol_bonus.h"
 
 void    error(int argc, char **argv, t_var *vars)
 {
@@ -30,16 +18,20 @@ void    error(int argc, char **argv, t_var *vars)
 
     vars->data->id = -1;
     error = 0;
-    if (argc == 1)
+    if (argc != 2)
         error = 1;
     if (!error && !ft_strcmp(argv[1], "Mandelbrot"))
         vars->data->id = 0;
     else if (!error && !ft_strcmp(argv[1], "Julia"))
         vars->data->id = 1;
-    else if (!error)
-        error = 2;
+    else
+        error = 1;
     if (error)
-        print_error(error);
+    {
+        printf("You put a wrong input!\nYou have two different ");
+        printf("option:\n\t- Mandelbrot\n\t- Julia\n");
+        exit(1);
+    }
 }
 
 void	ft_croix(t_var *vars)

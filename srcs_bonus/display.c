@@ -6,11 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 19:56:15 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:04:43 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:53:10 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractol_bonus.h"
 
 void    julia(t_var *vars)
 {

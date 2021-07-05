@@ -6,23 +6,43 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:05:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:29:57 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:53:07 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractol_bonus.h"
 
-int close_window(t_var *vars)
-{
-    (void)vars;
-    printf("Good bye!\n");
-    exit(1);
-}
-
-int key_hook(int keycode, t_var *vars)
+int key_press(int keycode, t_var *vars)
 {
     if (keycode == EXIT)
-        close_window(vars);
+        exit(1);
+    else if (keycode == ZOOM)
+        zoom(vars);
+    else if (keycode == UNZOOM)
+        unzoom(vars);
+    else if (keycode == LEFT)
+         vars->data->go_left = 1;
+    else if (keycode == RIGHT)
+        vars->data->go_right = 1;
+    else if (keycode == UP)
+        vars->data->go_up = 1;
+    else if (keycode == DOWN)
+        vars->data->go_down = 1;
+    return (0);
+}
+
+int key_release(int keycode, t_var *vars)
+{
+    if (keycode == EXIT)
+        exit(1);
+    else if (keycode == LEFT)
+         vars->data->go_left = 0;
+    else if (keycode == RIGHT)
+        vars->data->go_right = 0;
+    else if (keycode == UP)
+        vars->data->go_up = 0;
+    else if (keycode == DOWN)
+        vars->data->go_down = 0;
     return (0);
 }
 
@@ -43,6 +63,14 @@ static int move(t_var *vars)
         zoom(vars);
     else if (vars->data->zoom == -1)
         unzoom(vars);
+    if (vars->data->go_up)
+        vars->data->y1 += vars->data->y_size / 30;
+    else if (vars->data->go_down)
+        vars->data->y1 -= vars->data->y_size / 30;
+    else if (vars->data->go_left)
+        vars->data->x1 += vars->data->x_size / 30;
+    else if (vars->data->go_right)
+        vars->data->x1 -= vars->data->x_size / 30;
     vars->data->zoom = 0;
     return (1);
 }
@@ -56,7 +84,7 @@ int draw_fract(t_var *vars)
             mandelbrot(vars);
 	    else if (vars->data->id == 1)
 		    julia(vars);
-       // ft_croix(vars);
+        ft_croix(vars);
         mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
     }
     return (0);

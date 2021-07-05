@@ -6,11 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 20:01:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:06:07 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:52:57 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractol_bonus.h"
 
 void    zoom(t_var *vars)
 {

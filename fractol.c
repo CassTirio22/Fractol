@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/25 20:01:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:06:07 by ctirions         ###   ########.fr       */
+/*   Created: 2021/06/24 15:02:57 by ctirions          #+#    #+#             */
+/*   Updated: 2021/07/05 18:06:01 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "includes/fractol.h"
 
-void    zoom(t_var *vars)
+int main(int argc, char **argv)
 {
-    vars->data->x1 += vars->data->x_size * 0.05;
-    vars->data->y1 += vars->data->y_size * 0.05;
-    vars->data->x_size *= 0.9;
-    vars->data->y_size *= 0.9;
+    t_var   vars;
+    
+    init_var(&vars, argc, argv);
+    error(argc, argv, &vars);
+    return (0);
 }
 
-void    unzoom(t_var *vars)
-{
-    vars->data->x1 -= vars->data->x_size * 0.05;
-    vars->data->y1 -= vars->data->y_size * 0.05;
-    vars->data->x_size *= 1.1;
-    vars->data->y_size *= 1.1;
-}
+//gcc -lmlx -framework OpenGL -framework AppKit main.c && ./a.out

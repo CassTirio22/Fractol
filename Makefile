@@ -6,7 +6,7 @@
 #    By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/25 18:02:26 by ctirions          #+#    #+#              #
-#    Updated: 2021/07/05 16:43:56 by ctirions         ###   ########.fr        #
+#    Updated: 2021/07/05 19:11:32 by ctirions         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,34 +20,51 @@ BLUE		= $(shell tput -Txterm setaf 6)
 WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
-SRCS	=	main.c \
+SRCS	=	fractol.c \
 			srcs/display.c \
 			srcs/init.c \
 			srcs/move.c \
 			srcs/utils.c \
-			srcs/hook.c \
+			srcs/hook.c
 
 OBJS	=	${SRCS:.c=.o}
+
+
+SRCS_BONUS	=	fractol_bonus.c \
+				srcs_bonus/display.c \
+				srcs_bonus/init.c \
+				srcs_bonus/move.c \
+				srcs_bonus/utils.c \
+				srcs_bonus/hook.c
+
+OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 
 NAME	=	fractol.a
 
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:		
-			@gcc ${CFLAGS} -c -I./ $< -o ${<:.c=.o}
+			@gcc ${CFLAGS} -c -I ./includes $< -o ${<:.c=.o}
 			@echo "${LIGHTPURPLE}Compilation : $< --> .o${RESET}"
 
 $(NAME):	${OBJS}
 			@ar -rcs ${NAME} ${OBJS}
 			@ranlib ${NAME}
-			@echo "${GREEN}Library done !${RESET}"
 			@gcc -lmlx -framework OpenGL -framework AppKit ${NAME}
 			@mv a.out fractol
 
 all:		${NAME}
 
+bonus:		${OBJS_BONUS}
+			@ar -rcs ${NAME} ${OBJS_BONUS}
+			@ranlib ${NAME}
+			@gcc -lmlx -framework OpenGL -framework AppKit ${NAME}
+			@mv a.out fractol
+
+
 clean:		
 			@rm -f ${OBJS}
+			@rm -f ${OBJS_BONUS}
 			@echo "${RED}Clean done !${RESET}"
 
 fclean:		clean
