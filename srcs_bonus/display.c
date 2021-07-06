@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 19:56:15 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:53:10 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:59:13 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void    julia(t_var *vars)
 {
-    double  c[2];
-    double  z[2];
-    double  zoom[2];
-    double  tmp;
+    long double  c[2];
+    long double  z[2];
+    long double  zoom[2];
+    long double  tmp;
     int cord[2];
     int i;
 
@@ -41,17 +41,17 @@ void    julia(t_var *vars)
                 z[1] = 2 * z[1] * tmp + c[1];
             }
             if (i != vars->data->max_iter)
-                pixel_put(vars->img, cord[0], cord[1], 119856 + i * 2500);
+                pixel_put(vars->img, cord[0], cord[1], 119856 + i * 2000);
         }
     }
 }
 
 void    mandelbrot(t_var *vars)
 {
-    double  c[2];
-    double  z[2];
-    double  zoom[2];
-    double  tmp;
+    long double  c[2];
+    long double  z[2];
+    long double  zoom[2];
+    long double  tmp;
     int cord[2];
     int i;
 
@@ -75,7 +75,7 @@ void    mandelbrot(t_var *vars)
                 z[1] = 2 * z[1] * tmp + c[1];
             }
             if (i != vars->data->max_iter)
-                pixel_put(vars->img, cord[0], cord[1], 11931856 + i * 3000);
+                pixel_put(vars->img, cord[0], cord[1], 11931856 + i * 200000);
         }
     }
 }

@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:35:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:53:02 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/06 16:57:28 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	ft_croix(t_var *vars)
 		pixel_put(vars->img, x, vars->data->screen[1] / 2, 0x3FFAB2);
 	while (++y < vars->data->screen[1])
 		pixel_put(vars->img, vars->data->screen[0] / 2, y, 0x3FFAB2);
-	mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)

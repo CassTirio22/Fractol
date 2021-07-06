@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:30:17 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/06 16:46:03 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ typedef struct  s_img
 
 typedef struct  s_data
 {
-    double  x1;
-    double  x_size;
-    double  y1;
-    double  y_size;
-    double  zoom;
-    double  max_iter;
+    long double  x1;
+    long double  x_size;
+    long double  y1;
+    long double  y_size;
+    long double  zoom;
+    long double  max_iter;
     int id;
     int screen[2];
 }               t_data;

@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:43:12 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/05 18:53:06 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:13:42 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    init_var(t_var *vars, int argc, char **argv)
     vars->data->go_down = 0;
     vars->data->go_left = 0;
     vars->data->go_right = 0;
-    vars->data->max_iter = 150;
+    vars->data->max_iter = 200;
     init_mlx(vars);
 }
 
@@ -59,9 +59,9 @@ void    init_julia(t_data *data)
 void    init_mandelbrot(t_data *data)
 {
     data->x1 = -2;
-    data->x_size = 4;
-    data->y1 = -1;
-    data->y_size = 3;
+    data->x_size = 2.7;
+    data->y1 = -1.2;
+    data->y_size = 2.4;
     data->screen[0] = 500;
     data->screen[1] = 440;
 }
