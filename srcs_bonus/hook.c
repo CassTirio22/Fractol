@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:05:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/06 17:17:22 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:56:55 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int draw_fract(t_var *vars)
             mandelbrot(vars);
 	    else if (vars->data->id == 1)
 		    julia(vars);
+        else if (vars->data->id == 2)
+		    burningship(vars);
        // ft_croix(vars);
     }
     mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);

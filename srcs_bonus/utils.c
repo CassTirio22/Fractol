@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:35:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/06 16:57:28 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:55:53 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void    error(int argc, char **argv, t_var *vars)
         vars->data->id = 0;
     else if (!error && !ft_strcmp(argv[1], "Julia"))
         vars->data->id = 1;
+    else if (!error && !ft_strcmp(argv[1], "Burningship"))
+        vars->data->id = 2;
     else
         error = 1;
     if (error)

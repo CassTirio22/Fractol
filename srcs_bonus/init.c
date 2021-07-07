@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:43:12 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/06 17:13:42 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/07 16:26:09 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void    init_var(t_var *vars, int argc, char **argv)
         init_mandelbrot(vars->data);
     else if (vars->data->id == 1)
         init_julia(vars->data);
+    else if (vars->data->id == 2)
+        init_burningship(vars->data);
     vars->data->zoom = 0;
     vars->data->go_up = 0;
     vars->data->go_down = 0;
@@ -44,6 +46,16 @@ void    init_mlx(t_var *vars)
     mlx_hook(vars->win_ptr, 4, 1L << 2 , mouse_wheel, vars);
     mlx_loop_hook(vars->mlx_ptr, draw_fract, vars);
     mlx_loop(vars->mlx_ptr);
+}
+
+void    init_burningship(t_data *data)
+{
+    data->x1 = -2;
+    data->x_size = 2.7;
+    data->y1 = -1.2;
+    data->y_size = 2.4;
+    data->screen[0] = 470;
+    data->screen[1] = 440;
 }
 
 void    init_julia(t_data *data)

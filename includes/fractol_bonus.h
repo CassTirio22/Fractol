@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/06 16:46:19 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:53:42 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <math.h>
+# include <pthread.h>
+
+# define THREADS 16
 
 # define EXIT 53
 # define ZOOM 126
@@ -26,6 +30,7 @@
 # define UP 1
 # define DOWN 13 
 
+typedef struct  s_var   t_var;
 
 typedef struct  s_img
 {
@@ -52,13 +57,25 @@ typedef struct  s_data
     int go_right;
 }               t_data;
 
-typedef struct  s_var
+typedef struct			s_thread
+{
+	int					id;
+	t_var				*vars;
+}						t_thread;
+
+typedef struct  s_render
+{
+	pthread_t   threads[THREADS];
+	t_thread    args[THREADS];
+}				t_render;
+
+struct  s_var
 {
     void    *mlx_ptr;
     void    *win_ptr;
     t_data  *data;
     t_img   *img;
-}              t_var;
+};
 
 /*------DISPLAY------*/
 
@@ -66,6 +83,7 @@ void    ft_reset(t_var *vars);
 void	pixel_put(t_img *img, int x, int y, int color);
 void    mandelbrot(t_var *vars);
 void    julia(t_var *vars);
+void    burningship(t_var *vars);
 
 /*------INIT------*/
 
@@ -73,6 +91,7 @@ void    init_var(t_var *vars, int argc, char **argv);
 void    init_mlx(t_var *vars);
 void    init_julia(t_data *data);
 void    init_mandelbrot(t_data *data);
+void    init_burningship(t_data *data);
 
 /*------MOVE------*/
 
@@ -85,6 +104,11 @@ int key_press(int keycode, t_var *vars);
 int key_release(int keycode, t_var *vars);
 int mouse_wheel(int button, int x, int y, t_var *vars);
 int draw_fract(t_var *vars);
+
+/*------COLORS------*/
+
+int color1(int i);
+int color2(int i);
 
 /*------UTILS------*/
 
