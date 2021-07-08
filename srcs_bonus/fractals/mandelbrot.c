@@ -6,11 +6,19 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:21:28 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/07 18:22:15 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/08 16:32:59 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fractol_bonus.h"
+
+void    init_mandelbrot(t_data *data)
+{
+    data->x1 = -2;
+    data->x_size = 2.7;
+    data->y1 = -1.2;
+    data->y_size = 2.4;
+}
 
 void    mandelbrot(t_var *vars)
 {
@@ -22,12 +30,12 @@ void    mandelbrot(t_var *vars)
     int i;
 
     cord[0] = -1;
-    zoom[0] = vars->data->x_size / vars->data->screen[0];
-    zoom[1] = vars->data->y_size / vars->data->screen[1];
-    while (++cord[0] < vars->data->screen[0])
+    zoom[0] = vars->data->x_size / WIDTH;
+    zoom[1] = vars->data->y_size / HEIGHT;
+    while (++cord[0] < WIDTH)
     {
         cord[1] = -1;
-        while (++cord[1] < vars->data->screen[1])
+        while (++cord[1] < HEIGHT)
         {
             c[0] = cord[0] * zoom[0] + vars->data->x1;
             c[1] = cord[1] * zoom[1] + vars->data->y1;

@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/07 19:53:42 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/08 17:27:52 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 # include <math.h>
 # include <pthread.h>
 
-# define THREADS 16
+# define THREADS 4
+# define WIDTH 700
+# define HEIGHT 640
 
 # define EXIT 53
 # define ZOOM 126
@@ -50,7 +52,6 @@ typedef struct  s_data
     long double  zoom;
     long double  max_iter;
     int id;
-    int screen[2];
     int go_up;
     int go_down;
     int go_left;
@@ -75,19 +76,24 @@ struct  s_var
     void    *win_ptr;
     t_data  *data;
     t_img   *img;
+    t_render    render;
+    int id;
+    int cord[2];
 };
 
 /*------DISPLAY------*/
 
 void    ft_reset(t_var *vars);
 void	pixel_put(t_img *img, int x, int y, int color);
+void    usage_msg(void);
 void    mandelbrot(t_var *vars);
 void    julia(t_var *vars);
 void    burningship(t_var *vars);
 
 /*------INIT------*/
 
-void    init_var(t_var *vars, int argc, char **argv);
+void    init_struct(t_var *vars);
+void    init_var(t_var *vars);
 void    init_mlx(t_var *vars);
 void    init_julia(t_data *data);
 void    init_mandelbrot(t_data *data);
@@ -97,6 +103,11 @@ void    init_burningship(t_data *data);
 
 void    zoom(t_var *vars);
 void    unzoom(t_var *vars);
+
+/*------THREADS-------*/
+
+void    *use_threads(void *v);
+void    init_threads(t_var *vars);
 
 /*------HOOK------*/
 
@@ -112,8 +123,8 @@ int color2(int i);
 
 /*------UTILS------*/
 
+void    ft_close(void);
 void	ft_croix(t_var *vars);
-void    error(int argc, char **argv, t_var *vars);
 int	ft_strcmp(const char *s1, const char *s2);
 
 #endif

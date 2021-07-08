@@ -6,11 +6,19 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:20:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/07 17:26:45 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/08 16:32:39 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fractol_bonus.h"
+
+void    init_julia(t_data *data)
+{
+    data->x1 = -2;
+    data->x_size = 4;
+    data->y1 = -1;
+    data->y_size = 3;
+}
 
 void    julia(t_var *vars)
 {
@@ -22,12 +30,12 @@ void    julia(t_var *vars)
     int i;
 
     cord[0] = -1;
-    zoom[0] = vars->data->x_size / vars->data->screen[0];
-    zoom[1] = vars->data->y_size / vars->data->screen[1];
-    while (++cord[0] < vars->data->screen[0])
+    zoom[0] = vars->data->x_size / WIDTH;
+    zoom[1] = vars->data->y_size / HEIGHT;
+    while (++cord[0] < WIDTH)
     {
         cord[1] = -1;
-        while (++cord[1] < vars->data->screen[1])
+        while (++cord[1] < HEIGHT)
         {
             c[0] = 0.285;
             c[1] = 0.01;
