@@ -6,7 +6,7 @@
 #    By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/25 18:02:26 by ctirions          #+#    #+#              #
-#    Updated: 2021/07/08 17:15:41 by ctirions         ###   ########.fr        #
+#    Updated: 2021/07/10 15:46:13 by ctirions         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,16 +31,16 @@ OBJS	=	${SRCS:.c=.o}
 
 
 SRCS_BONUS	=	fractol_bonus.c \
+				srcs_bonus/color.c \
 				srcs_bonus/display.c \
+				srcs_bonus/hook.c \
 				srcs_bonus/init.c \
 				srcs_bonus/move.c \
+				srcs_bonus/thread.c \
 				srcs_bonus/utils.c \
-				srcs_bonus/hook.c \
-				srcs_bonus/color.c \
-				srcs_bonus/fractals/mandelbrot.c \
-				srcs_bonus/fractals/julia.c \
 				srcs_bonus/fractals/burningship.c \
-				srcs_bonus/thread.c
+				srcs_bonus/fractals/julia.c \
+				srcs_bonus/fractals/mandelbrot.c \
 
 OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 

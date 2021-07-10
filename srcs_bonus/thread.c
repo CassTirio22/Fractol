@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:56:17 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/08 17:37:46 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/10 16:51:03 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    *use_threads(void *v)
     const int   thread_height = HEIGHT / THREADS;
 
     t = (t_thread *)v;
-    t->vars->cord[1] = thread_height * t->id - 1;
+    t->vars->cord[1] = thread_height * t->id;
     while (++t->vars->cord[1] < thread_height * (t->id + 1))
     {
         t->vars->cord[0] = -1;
@@ -42,7 +42,9 @@ void    init_threads(t_var *vars)
         if (pthread_create(r->threads + i, NULL, use_threads, r->args + i))
             ft_close();
     }
+    write(1, "ok\n", 3);
     while (i--)
         if (pthread_join(r->threads[i], NULL))
             ft_close();
+    write(1, "OK\n", 3);
 }

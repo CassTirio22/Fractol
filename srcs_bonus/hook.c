@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:05:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/08 17:08:32 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/10 15:47:36 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int key_press(int keycode, t_var *vars)
 {
     if (keycode == EXIT)
-        exit(1);
+        ft_close();
     else if (keycode == ZOOM)
         zoom(vars);
     else if (keycode == UNZOOM)
@@ -34,7 +34,7 @@ int key_press(int keycode, t_var *vars)
 int key_release(int keycode, t_var *vars)
 {
     if (keycode == EXIT)
-        exit(1);
+        ft_close();
     else if (keycode == LEFT)
          vars->data->go_left = 0;
     else if (keycode == RIGHT)

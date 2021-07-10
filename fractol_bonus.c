@@ -6,11 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:02:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/08 17:21:37 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/10 16:03:59 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol_bonus.h"
+#include "includes/fractol_bonus.h"
 
 static int  check_arg(char *argv)
 {
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 {
     t_var   vars;
     
-    if (argc >=2)
+    if (argc >= 2)
     {
         vars.id = check_arg(argv[1]);
         if (vars.id != -1)

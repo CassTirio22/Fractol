@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:43:12 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/08 17:33:26 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/10 16:28:40 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void    init_mlx(t_var *vars)
     mlx_hook(vars->win_ptr, 2, 1L << 0, key_press, vars);
     mlx_hook(vars->win_ptr, 3, 1L << 1, key_release, vars);
     mlx_hook(vars->win_ptr, 4, 1L << 2 , mouse_wheel, vars);
-  //  mlx_loop_hook(vars->mlx_ptr, draw_fract, vars);
+    //mlx_loop_hook(vars->mlx_ptr, draw_fract, vars);
 }
