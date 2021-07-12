@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:05:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/12 16:29:39 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:55:15 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ static int move(t_var *vars)
     else if (vars->data->go_right)
         vars->data->x1 -= vars->data->x_size / 30;
     vars->data->zoom = 0;
-    ft_reset(vars);
     return (1);
 }
 
@@ -88,6 +87,5 @@ int draw_fract(t_var *vars, int x, int y)
 		    burningship(vars, x, y);
        // ft_croix(vars);
     }
-    mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
     return (0);
 }

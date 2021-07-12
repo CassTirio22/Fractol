@@ -6,7 +6,7 @@
 #    By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/25 18:02:26 by ctirions          #+#    #+#              #
-#    Updated: 2021/07/12 17:14:38 by ctirions         ###   ########.fr        #
+#    Updated: 2021/07/12 19:05:41 by ctirions         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ CFLAGS	= -Wall -Wextra -Werror
 $(NAME):	${OBJS}
 			@ar -rcs ${NAME} ${OBJS}
 			@ranlib ${NAME}
-			@gcc -lpthread -lmlx -framework OpenGL -framework AppKit ${NAME}
+			@gcc -lmlx -framework OpenGL -framework AppKit ${NAME}
 			@mv a.out fractol
 
 all:		${NAME}
@@ -63,7 +63,7 @@ all:		${NAME}
 bonus:		${OBJS_BONUS}
 			@ar -rcs ${NAME} ${OBJS_BONUS}
 			@ranlib ${NAME}
-			@gcc -lmlx -framework OpenGL -framework AppKit ${NAME}
+			@gcc -lmlx -framework OpenGL -framework AppKit -lpthread ${NAME}
 			@mv a.out fractol
 
 
@@ -74,7 +74,6 @@ clean:
 
 fclean:		clean
 			@rm -f ${NAME}
-			@rm fractol
 			@echo "${RED}Fclean done !${RESET}"
 
 re:			fclean all

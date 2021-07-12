@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/12 16:30:14 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:56:20 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <pthread.h>
 
 # define THREADS 4
-# define WIDTH 700
+# define WIDTH 640
 # define HEIGHT 640
 
 # define EXIT 53
@@ -78,7 +78,6 @@ struct  s_var
     t_img   *img;
     t_render    render;
     int id;
-    int cord[2];
 };
 
 /*------DISPLAY------*/
@@ -107,7 +106,7 @@ void    unzoom(t_var *vars);
 /*------THREADS-------*/
 
 void    *use_threads(void *v);
-void    init_threads(t_var *vars);
+int     init_threads(t_var *vars);
 
 /*------HOOK------*/
 

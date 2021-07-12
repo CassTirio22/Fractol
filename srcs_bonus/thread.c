@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:56:17 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/12 16:39:42 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/12 19:05:03 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    *use_threads(void *v)
     int         y;
 
     t = (t_thread *)v;
-    y = HEIGHT / THREADS * t->id;
+    y = HEIGHT / THREADS * t->id - 1;
     while (++y < HEIGHT / THREADS * (t->id + 1))
     {
         x = -1;
@@ -29,7 +29,7 @@ void    *use_threads(void *v)
     return (NULL);
 }
 
-void    init_threads(t_var *vars)
+int    init_threads(t_var *vars)
 {
     int i;
     t_render    *r;
@@ -40,12 +40,14 @@ void    init_threads(t_var *vars)
     {
         r->args[i].id = i;
         r->args[i].vars = vars;
-        pthread_create(r->threads + i, NULL, use_threads, &(r->args[i]));
+        if (pthread_create(r->threads + i, NULL, use_threads, r->args + i))
+            ft_close();
     }
     i = -1;
-    write(1, "OK\n", 3);
     while (++i < THREADS)
-        pthread_join(r->threads[i], NULL);
-    write(1, "ok\n", 3);
-
+        if (pthread_join(r->threads[i], NULL))
+            ft_close();
+    ft_reset(vars);
+    mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
+    return (0);
 }
