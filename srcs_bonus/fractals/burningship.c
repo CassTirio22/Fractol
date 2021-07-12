@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:20:23 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/08 17:15:08 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/12 16:34:43 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    init_burningship(t_data *data)
     data->y_size = 2.4;
 }
 
-void    burningship(t_var *vars)
+void    burningship(t_var *vars, int x, int y)
 {
     long double c[2];
     long double z[2];
@@ -30,8 +30,8 @@ void    burningship(t_var *vars)
 
     zoom[0] = vars->data->x_size / WIDTH;
     zoom[1] = vars->data->y_size / HEIGHT;
-    c[0] = vars->cord[0] * zoom[0] + vars->data->x1;
-    c[1] = vars->cord[1] * zoom[1] + vars->data->y1;
+    c[0] = x * zoom[0] + vars->data->x1;
+    c[1] = y * zoom[1] + vars->data->y1;
     z[0] = 0;
     z[1] = 0;
     i = -1;
@@ -42,5 +42,5 @@ void    burningship(t_var *vars)
         z[0] = fabsl(tmp + c[0]);
     }
     if (i != vars->data->max_iter)
-        pixel_put(vars->img, vars->cord[0], vars->cord[1], color2(i));
+        pixel_put(vars->img, x, y, color2(i));
 }

@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/10 15:45:34 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/12 16:30:14 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ struct  s_var
 void    ft_reset(t_var *vars);
 void	pixel_put(t_img *img, int x, int y, int color);
 void    usage_msg(void);
-void    mandelbrot(t_var *vars);
-void    julia(t_var *vars);
-void    burningship(t_var *vars);
+void    mandelbrot(t_var *vars, int x, int y);
+void    julia(t_var *vars, int x, int y);
+void    burningship(t_var *vars, int x, int y);
 
 /*------INIT------*/
 
@@ -114,7 +114,7 @@ void    init_threads(t_var *vars);
 int key_press(int keycode, t_var *vars);
 int key_release(int keycode, t_var *vars);
 int mouse_wheel(int button, int x, int y, t_var *vars);
-int draw_fract(t_var *vars);
+int draw_fract(t_var *vars, int x, int y);
 
 /*------COLORS------*/
 

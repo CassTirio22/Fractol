@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:05:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/10 15:47:36 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/12 16:29:39 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,16 @@ static int move(t_var *vars)
     return (1);
 }
 
-int draw_fract(t_var *vars)
+int draw_fract(t_var *vars, int x, int y)
 {
     if (move(vars))
     {
         if (vars->id == 0)
-            mandelbrot(vars);
+            mandelbrot(vars, x, y);
 	    else if (vars->id == 1)
-		    julia(vars);
+		    julia(vars, x, y);
         else if (vars->id == 2)
-		    burningship(vars);
+		    burningship(vars, x, y);
        // ft_croix(vars);
     }
     mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
