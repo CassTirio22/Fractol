@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/12 18:56:20 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:41:42 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <math.h>
 # include <pthread.h>
 
-# define THREADS 4
+# define THREADS 640
 # define WIDTH 640
 # define HEIGHT 640
 
@@ -52,6 +52,7 @@ typedef struct  s_data
     long double  zoom;
     long double  max_iter;
     int id;
+    int color;
     int go_up;
     int go_down;
     int go_left;
@@ -115,15 +116,11 @@ int key_release(int keycode, t_var *vars);
 int mouse_wheel(int button, int x, int y, t_var *vars);
 int draw_fract(t_var *vars, int x, int y);
 
-/*------COLORS------*/
-
-int color1(int i);
-int color2(int i);
-
 /*------UTILS------*/
 
 void    ft_close(void);
 void	ft_croix(t_var *vars);
-int	ft_strcmp(const char *s1, const char *s2);
+int	    color(int color, int i);
+int	    ft_strcmp(const char *s1, const char *s2);
 
 #endif

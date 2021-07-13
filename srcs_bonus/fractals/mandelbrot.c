@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:21:28 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/12 16:34:11 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:41:54 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void    init_mandelbrot(t_data *data)
     data->x_size = 2.7;
     data->y1 = -1.2;
     data->y_size = 2.4;
+    data->color = 1;
 }
 
 void    mandelbrot(t_var *vars, int x, int y)
@@ -42,5 +43,5 @@ void    mandelbrot(t_var *vars, int x, int y)
         z[1] = 2 * z[1] * tmp + c[1];
     }
     if (i != vars->data->max_iter)
-        pixel_put(vars->img, x, y, color1(i));
+        pixel_put(vars->img, x, y, color(vars->data->color, i));
 }

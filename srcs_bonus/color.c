@@ -6,11 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:23:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/07 17:26:32 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:41:24 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int color1(int i)
+static int color1(int i)
 {
     int color[24];
     
@@ -41,7 +41,7 @@ int color1(int i)
     return(color[i % 24]);
 }
 
-int color2(int i)
+static int color2(int i)
 {
     int color[24];
 
@@ -70,4 +70,45 @@ int color2(int i)
 	color[22] = 0x00B05A14;
 	color[23] = 0x00DC8214;
     return(color[i % 24]);
+}
+
+static int color3(int i)
+{
+	int color[24];
+	color[0] = 0x006E0241;
+	color[1] = 0x00790247;
+	color[2] = 0x0085024E;
+	color[3] = 0x00900254;
+	color[4] = 0x009B035B;
+	color[5] = 0x00A60361;
+	color[6] = 0x00B10368;
+	color[7] = 0x00BC036E;
+	color[8] = 0x00C70375;
+	color[9] = 0x00D2047B;
+	color[10] = 0x00DD0482;
+	color[11] = 0x00E80488;
+	color[12] = 0x00F3048F;
+	color[13] = 0x00FF0596;
+	color[14] = 0x00000000;
+	color[15] = 0x000B0006;
+	color[16] = 0x0016000D;
+	color[17] = 0x00210013;
+	color[18] = 0x002C001A;
+	color[19] = 0x00370120;
+	color[20] = 0x00420127;
+	color[21] = 0x004D012D;
+	color[22] = 0x00580134;
+	color[23] = 0x0063013A;
+	return (color[i % 24]);
+}
+
+int	color(int color, int i)
+{
+	if (color == 1)
+		return (color1(i));
+	else if (color == 2)
+		return (color2(i));
+	else if (color == 3)
+		return (color3(i));
+	return (color1(i));
 }

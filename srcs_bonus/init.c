@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:43:12 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/12 16:26:39 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:17:02 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    init_var(t_var *vars)
     vars->data->go_down = 0;
     vars->data->go_left = 0;
     vars->data->go_right = 0;
-    vars->data->max_iter = 100;
+    vars->data->max_iter = 200;
 }
 
 void    init_mlx(t_var *vars)
