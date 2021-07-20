@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/13 18:41:42 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/20 17:49:24 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <math.h>
 # include <pthread.h>
 
-# define THREADS 640
-# define WIDTH 640
-# define HEIGHT 640
+# define THREADS 320
+# define WIDTH 320
+# define HEIGHT 320
 
 # define EXIT 53
 # define ZOOM 126
@@ -101,6 +101,7 @@ void    init_burningship(t_data *data);
 
 /*------MOVE------*/
 
+int     move(t_var *vars);
 void    zoom(t_var *vars);
 void    unzoom(t_var *vars);
 

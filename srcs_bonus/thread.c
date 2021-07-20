@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:56:17 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/13 18:08:50 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/20 17:48:53 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int    init_threads(t_var *vars)
     while (++i < THREADS)
         if (pthread_join(r->threads[i], NULL))
             ft_close();
+    //ft_croix(vars);
     mlx_put_image_to_window(vars->mlx_ptr, vars->win_ptr, vars->img->img, 0, 0);
     return (0);
 }

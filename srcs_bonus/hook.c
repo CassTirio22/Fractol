@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:05:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/13 18:45:49 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/20 16:56:06 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,44 +56,22 @@ int key_release(int keycode, t_var *vars)
 
 int mouse_wheel(int button, int x, int y, t_var *vars)
 {
-    x = 6;
-    y = 9;
+    if (button == 1 || button == 2)
+        return (0);
+    if (x - WIDTH / 2 < 0)
+        vars->data->x1 -= vars->data->x_size * 0.1 * (1 - (float)x / (WIDTH / 2));
+    else
+        vars->data->x1 += vars->data->x_size * 0.1 * ((float)(x - WIDTH / 2) / (WIDTH / 2));
+    if (y - HEIGHT / 2 < 0)
+        vars->data->y1 -= vars->data->y_size * 0.1 * (1 - (float)y / (HEIGHT / 2));
+    else
+        vars->data->y1 += vars->data->y_size * 0.1 * ((float)(y - HEIGHT / 2) / (HEIGHT / 2));
     if (button == 4)
         vars->data->zoom = 1;
     else if (button == 5)
         vars->data->zoom = -1;
     init_threads(vars);
     return (0);
-}
-
-static int move(t_var *vars)
-{
-    if (vars->data->zoom == 1)
-        zoom(vars);
-    else if (vars->data->zoom == -1)
-        unzoom(vars);
-    if (vars->data->go_up)
-    {
-        vars->data->y1 += vars->data->y_size / 30;
-        vars->data->go_up = 0;
-    }
-    else if (vars->data->go_down)
-    {
-        vars->data->y1 -= vars->data->y_size / 30;
-        vars->data->go_down = 0;
-    }
-    else if (vars->data->go_left)
-    {
-        vars->data->x1 += vars->data->x_size / 30;
-        vars->data->go_left = 0;
-    }
-    else if (vars->data->go_right)
-    {
-        vars->data->x1 -= vars->data->x_size / 30;
-        vars->data->go_right = 0;
-    }
-    vars->data->zoom = 0;
-    return (1);
 }
 
 int draw_fract(t_var *vars, int x, int y)
@@ -106,7 +84,6 @@ int draw_fract(t_var *vars, int x, int y)
 		    julia(vars, x, y);
         else if (vars->id == 2)
 		    burningship(vars, x, y);
-       // ft_croix(vars);
     }
     return (0);
 }
