@@ -6,46 +6,47 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:35:07 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/10 15:42:06 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/25 17:20:38 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static void print_error(int error)
+static void	print_error(int error)
 {
-    if (error == 1)
-        printf("Wrong number of arguments!\n");
-    else if (error == 2)
-    {
-        printf("Wrong name for the second argument!\n");
-        printf("You have two choice:\n- Mandelbrot\n- Julia\n");
-    }
-    exit(1);
+	if (error == 1)
+		printf("Wrong number of arguments!\n");
+	else if (error == 2)
+	{
+		printf("Wrong name for the second argument!\n");
+		printf("You have two choice:\n- Mandelbrot\n- Julia\n");
+	}
+	exit(1);
 }
 
-void    error(int argc, char **argv, t_var *vars)
+void	error(int argc, char **argv, t_var *vars)
 {
-    int error;
+	int	error;
 
-    vars->data->id = -1;
-    error = 0;
-    if (argc == 1)
-        error = 1;
-    if (!error && !ft_strcmp(argv[1], "Mandelbrot"))
-        vars->data->id = 0;
-    else if (!error && !ft_strcmp(argv[1], "Julia"))
-        vars->data->id = 1;
-    else if (!error)
-        error = 2;
-    if (error)
-        print_error(error);
+	vars->data->id = -1;
+	error = 0;
+	if (argc == 1)
+		error = 1;
+	if (!error && !ft_strcmp(argv[1], "Mandelbrot"))
+		vars->data->id = 0;
+	else if (!error && !ft_strcmp(argv[1], "Julia"))
+		vars->data->id = 1;
+	else if (!error)
+		error = 2;
+	if (error)
+		print_error(error);
 }
 
 void	ft_croix(t_var *vars)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
+
 	x = -1;
 	y = -1;
 	while (++x < vars->data->screen[0])
@@ -57,7 +58,7 @@ void	ft_croix(t_var *vars)
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] && s2[i])

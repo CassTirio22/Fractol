@@ -6,15 +6,15 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:23:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/13 18:41:24 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/07/25 17:17:09 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int color1(int i)
+static int	color1(int i)
 {
-    int color[24];
-    
-    color[0] = 0x000A3278;
+	int	color[24];
+
+	color[0] = 0x000A3278;
 	color[1] = 0x000F2D79;
 	color[2] = 0x0015287B;
 	color[3] = 0x001B247D;
@@ -38,14 +38,14 @@ static int color1(int i)
 	color[21] = 0x00EBCDA0;
 	color[22] = 0x00E6AA69;
 	color[23] = 0x00E18732;
-    return(color[i % 24]);
+	return (color[i % 24]);
 }
 
-static int color2(int i)
+static int	color2(int i)
 {
-    int color[24];
+	int	color[24];
 
-    color[0] = 0x001E0500;
+	color[0] = 0x001E0500;
 	color[1] = 0x00270502;
 	color[2] = 0x00300505;
 	color[3] = 0x00390508;
@@ -69,12 +69,13 @@ static int color2(int i)
 	color[21] = 0x00853214;
 	color[22] = 0x00B05A14;
 	color[23] = 0x00DC8214;
-    return(color[i % 24]);
+	return (color[i % 24]);
 }
 
-static int color3(int i)
+static int	color3(int i)
 {
-	int color[24];
+	int	color[24];
+
 	color[0] = 0x006E0241;
 	color[1] = 0x00790247;
 	color[2] = 0x0085024E;
@@ -102,6 +103,25 @@ static int color3(int i)
 	return (color[i % 24]);
 }
 
+static int	color4(int i)
+{
+	int	color[12];
+
+	color[0] = 0x00500A78;
+	color[1] = 0x005F1487;
+	color[2] = 0x006E1E96;
+	color[3] = 0x00055F32;
+	color[4] = 0x00197D37;
+	color[5] = 0x002D9B3C;
+	color[6] = 0x00C8AF3C;
+	color[7] = 0x00E1D23C;
+	color[8] = 0x00FAF53C;
+	color[9] = 0x00CD730A;
+	color[10] = 0x00C56605;
+	color[11] = 0x00BE5A00;
+	return (color[i % 12]);
+}
+
 int	color(int color, int i)
 {
 	if (color == 1)
@@ -110,5 +130,7 @@ int	color(int color, int i)
 		return (color2(i));
 	else if (color == 3)
 		return (color3(i));
+	else if (color == 4)
+		return (color4(i));
 	return (color1(i));
 }
