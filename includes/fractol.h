@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/25 17:38:44 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/08/22 16:17:24 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ typedef struct s_var
 
 void	ft_reset(t_var *vars);
 void	pixel_put(t_img *img, int x, int y, int color);
-void	mandelbrot(t_var *vars);
-void	julia(t_var *vars);
+void	mandelbrot(t_var *vars, int x, int y);
+void	julia(t_var *vars, int x, int y);
 
 /*------INIT------*/
 

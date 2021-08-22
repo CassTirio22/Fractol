@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 17:20:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/25 18:38:59 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/08/22 16:30:50 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	julia(t_var *vars, int x, int y)
 	z[0] = x * zoom[0] + vars->data->x1;
 	z[1] = y * zoom[1] + vars->data->y1;
 	i = -1;
-	while (z[0] * z[0] + z[1] * z[1] < 4 && ++i < vars->data->max_iter)
+	while (z[0] * z[0] + z[1] * z[1] < 9000000000 && ++i < vars->data->max_iter)
 	{
 		tmp = z[0];
 		z[0] = z[0] * z[0] - z[1] * z[1] + c[0];
