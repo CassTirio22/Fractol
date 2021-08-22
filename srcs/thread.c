@@ -6,11 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:56:17 by ctirions          #+#    #+#             */
-/*   Updated: 2021/07/25 17:02:39 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/08/22 17:53:53 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol_bonus.h"
+#include "../includes/fractol.h"
 
 void	*use_threads(void *v)
 {

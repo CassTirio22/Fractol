@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 17:20:57 by ctirions          #+#    #+#             */
-/*   Updated: 2021/08/22 16:30:50 by ctirions         ###   ########.fr       */
+/*   Created: 2021/07/07 17:21:28 by ctirions          #+#    #+#             */
+/*   Updated: 2021/08/22 17:53:45 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fractol_bonus.h"
+#include "../../includes/fractol.h"
 
-void	init_julia(t_data *data)
+void	init_mandelbrot(t_data *data)
 {
-	data->x1 = -1;
-	data->x_size = 2;
-	data->y1 = -1;
-	data->y_size = 1.5;
-	data->color = 3;
+	data->x1 = -2;
+	data->x_size = 2.7;
+	data->y1 = -1.2;
+	data->y_size = 2.4;
+	data->color = 1;
 }
 
-void	julia(t_var *vars, int x, int y)
+void	mandelbrot(t_var *vars, int x, int y)
 {
 	long double	c[2];
 	long double	z[2];
@@ -31,12 +31,12 @@ void	julia(t_var *vars, int x, int y)
 
 	zoom[0] = vars->data->x_size / WIDTH;
 	zoom[1] = vars->data->y_size / HEIGHT;
-	c[0] = (float)(4 * vars->data->mouse[0]) / WIDTH - 2;
-	c[1] = (float)(4 * vars->data->mouse[1]) / HEIGHT - 2;
-	z[0] = x * zoom[0] + vars->data->x1;
-	z[1] = y * zoom[1] + vars->data->y1;
+	c[0] = x * zoom[0] + vars->data->x1;
+	c[1] = y * zoom[1] + vars->data->y1;
+	z[0] = 0;
+	z[1] = 0;
 	i = -1;
-	while (z[0] * z[0] + z[1] * z[1] < 9000000000 && ++i < vars->data->max_iter)
+	while (z[0] * z[0] + z[1] * z[1] < 4 && ++i < vars->data->max_iter)
 	{
 		tmp = z[0];
 		z[0] = z[0] * z[0] - z[1] * z[1] + c[0];
