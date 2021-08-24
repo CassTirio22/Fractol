@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/08/22 18:03:07 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/08/24 17:32:27 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <math.h>
 # include <pthread.h>
 
-# define THREADS 320
-# define WIDTH 320
-# define HEIGHT 320
+# define THREADS 500
+# define WIDTH 500
+# define HEIGHT 500
 
 # define EXIT 53
 # define ZOOM 126
