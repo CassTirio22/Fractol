@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 17:33:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/08/24 17:32:27 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/08/25 14:27:48 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 # define HEIGHT 500
 
 # define EXIT 53
-# define ZOOM 126
-# define UNZOOM 125
-# define LEFT 2
-# define RIGHT 0
-# define UP 1
-# define DOWN 13 
+# define ZOOM 13
+# define UNZOOM 1
+# define LEFT 124
+# define RIGHT 123
+# define UP 125
+# define DOWN 126 
 
 typedef struct s_var	t_var;
 
